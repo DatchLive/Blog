@@ -1,16 +1,32 @@
+import MenuIcon from "@material-ui/icons/Menu";
 import Link from "next/link";
 
 export const Header = () => {
   return (
-    <header className="bg-green-400">
-      <h1 className="text-4xl text-white uppercase"> Wise Life Log</h1>
-      <h2 className="text-white">〜賢く生きるための情報を発信！〜</h2>
+    <header className="bg-green-400 text-white relative">
+      <div className="text-center">
+        <h1 className="couragette text-4xl uppercase pt-8">Wise Life Log</h1>
+        <h2>〜賢く生きるための情報を発信！〜</h2>
+      </div>
       <div>
-        <button>
-          <svg className="h-6 w-6 " viewBox="0 0 24 24">
-            <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" />
-          </svg>
+        <button className="absolute top-3 right-3 md:hidden">
+          <MenuIcon />
         </button>
+      </div>
+
+      <div>
+        <ul className="uppercase md:flex md:justify-around">
+          <li>
+            <Link href="/">
+              <a className="">home</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/about">
+              <a className="">about</a>
+            </Link>
+          </li>
+        </ul>
       </div>
     </header>
   );
