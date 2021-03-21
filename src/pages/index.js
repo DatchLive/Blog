@@ -1,15 +1,28 @@
+import Link from "next/link";
+import Image from "next/image";
+import { Header } from "../components/header";
+import { Footer } from "../components/footer";
+
 const Home = ({ blog }) => {
   return (
     <div>
-      <ul>
-        {blog.map((blog) => (
-          <li key={blog.id}>
-            <Link href={`blog/${blog.id}`}>
-              <a>{blog.title}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <Header />
+      {blog.map((blog) => (
+        <div key={blog.id}>
+          <Link href={`blogs/${blog.id}`}>
+            <a>
+              <h2>{blog.title}</h2>
+            </a>
+          </Link>
+          {blog.tags.map((tag) => (
+            <li className="list-none" key={tag.id}>
+              <span>{tag.name}</span>
+            </li>
+          ))}
+        </div>
+      ))}
+
+      <Footer />
     </div>
   );
 };
@@ -23,7 +36,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      blogs: data.contents,
+      blog: data.contents,
     },
   };
 };
