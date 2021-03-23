@@ -16,7 +16,7 @@ const Home = ({ blog }) => {
             </li>
           ))}
 
-          <img src={blog.image.url} alt="" />
+          <img src={blog?.image?.url ?? ""} alt="" />
 
           <span>{blog.publishedAt}</span>
         </div>
