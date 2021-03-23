@@ -1,15 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
-import { Header } from "../components/header";
-import { Footer } from "../components/footer";
 
 const Home = ({ blog }) => {
   return (
     <div>
-      <Header />
       {blog.map((blog) => (
         <div key={blog.id}>
-          <Link href={`blogs/${blog.id}`}>
+          <Link href={`/blogs/${blog.id}`}>
             <a>
               <h2>{blog.title}</h2>
             </a>
@@ -19,10 +15,12 @@ const Home = ({ blog }) => {
               <span>{tag.name}</span>
             </li>
           ))}
+
+          <img src={blog.image.url} alt="" />
+
+          <span>{blog.publishedAt}</span>
         </div>
       ))}
-
-      <Footer />
     </div>
   );
 };
