@@ -1,43 +1,37 @@
 import Link from "next/link";
 import { Layout } from "../components/layout";
 
-const Home = ({ blog }) => {
+const Home = ({ articles }) => {
+  console.log(articles);
   return (
     <Layout>
-      <div>
-        {blog.map((blog) => (
-          <div key={blog.id}>
-            <Link href={`/blogs/${blog.id}`}>
-              <a>
-                <img src={blog?.image?.url ?? ""} alt="" />
-                <h2>{blog.title}</h2>
-              </a>
+      <ul>
+        {articles.map((article) => (
+          <li key={article.sys.id}>
+            <Link href={"/articles/" + article.fields.slug}>
+              <a>{article.fields.title}</a>
             </Link>
-            {blog.tags.map((tag) => (
-              <li className="list-none" key={tag.id}>
-                <span>{tag.name}</span>
-              </li>
-            ))}
-            <span>{blog.publishedAt}</span>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </Layout>
   );
 };
 
-export const getStaticProps = async () => {
-  const key = {
-    headers: { "X-API-KEY": process.env.API_KEY },
-  };
-  const res = await fetch(`https://wiselifelog.microcms.io/api/v1/blogs/`, key);
-  const data = await res.json();
+let client = require("contentful").createClient({
+  space: process.env.NEXT_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.NEXT_CONTENTFUL_ACCESS_TOKEN,
+});
 
+export async function getStaticProps() {
+  let data = await client.getEntries({
+    content_type: "article",
+  });
   return {
     props: {
-      blog: data.contents,
+      articles: data.items,
     },
   };
-};
+}
 
 export default Home;
