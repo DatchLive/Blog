@@ -1,9 +1,10 @@
 import { Layout } from "../components/layout";
+import { Title } from "../components/title";
 
 export default function Contact() {
   return (
     <Layout>
-      <h1>aaaaa</h1>
+      <Title title="contact" />
     </Layout>
   );
 }
