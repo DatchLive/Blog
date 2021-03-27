@@ -40,6 +40,7 @@ export const Footer = () => {
 
       <div className="mb-16">
         <Title title="category" />
+
         <div>
           <h4 className="text-2xl mb-4">Category</h4>
           <ul>
@@ -67,3 +68,5 @@ export const Footer = () => {
     </footer>
   );
 };
+
+

@@ -1,27 +1,28 @@
 import Link from "next/link";
+import { Layout } from "../components/layout";
 
 const Home = ({ blog }) => {
   return (
-    <div>
-      {blog.map((blog) => (
-        <div key={blog.id}>
-          <Link href={`/blogs/${blog.id}`}>
-            <a>
-              <h2>{blog.title}</h2>
-            </a>
-          </Link>
-          {blog.tags.map((tag) => (
-            <li className="list-none" key={tag.id}>
-              <span>{tag.name}</span>
-            </li>
-          ))}
-
-          <img src={blog?.image?.url ?? ""} alt="" />
-
-          <span>{blog.publishedAt}</span>
-        </div>
-      ))}
-    </div>
+    <Layout>
+      <div>
+        {blog.map((blog) => (
+          <div key={blog.id}>
+            <Link href={`/blogs/${blog.id}`}>
+              <a>
+                <img src={blog?.image?.url ?? ""} alt="" />
+                <h2>{blog.title}</h2>
+              </a>
+            </Link>
+            {blog.tags.map((tag) => (
+              <li className="list-none" key={tag.id}>
+                <span>{tag.name}</span>
+              </li>
+            ))}
+            <span>{blog.publishedAt}</span>
+          </div>
+        ))}
+      </div>
+    </Layout>
   );
 };
 
