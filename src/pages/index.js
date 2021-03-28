@@ -2,16 +2,26 @@ import Link from "next/link";
 import { Layout } from "../components/layout";
 
 const Home = ({ articles }) => {
-  console.log(articles);
   return (
     <Layout>
       <ul>
         {articles.map((article) => (
-          <li key={article.sys.id}>
-            <Link href={"/articles/" + article.fields.slug}>
-              <a>{article.fields.title}</a>
-            </Link>
-          </li>
+          <div key={article.sys.id}>
+            <li>
+              <Link href={"/articles/" + article.fields.slug}>
+                <a>
+                  <img
+                    src={"https:" + article.fields.image.fields.file.url}
+                    alt=""
+                  />
+                  <h3>{article.fields.title}</h3>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <p>{article.fields.date}</p>
+            </li>
+          </div>
         ))}
       </ul>
     </Layout>
