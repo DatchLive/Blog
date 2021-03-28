@@ -6,8 +6,8 @@ export const Profile = (props) => {
         src={`/img/${props.src}.png`}
         alt={props.alt}
       />
-      <p className="text-xl font-bold mb-4">{props.name}</p>
-      <p>{props.introduce}</p>
+      <p className="text-xl font-bold mb-4 text-center">{props.name}</p>
+      <p className="mb-4">{props.introduce}</p>
     </div>
   );
 };
