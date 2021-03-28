@@ -61,12 +61,10 @@ export const Footer = () => {
           </button>
         </Link>
       </div>
-      <small>
+      <small className="font-serif">
         Copyright &copy; <span className="uppercase">wise life log</span> All
         Rights Reserved.
       </small>
     </footer>
   );
 };
-
-
