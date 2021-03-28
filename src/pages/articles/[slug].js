@@ -1,5 +1,6 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
+import { Layout } from "../../components/layout";
 
 let client = require("contentful").createClient({
   space: process.env.NEXT_CONTENTFUL_SPACE_ID,
@@ -14,7 +15,7 @@ export async function getStaticPaths() {
     paths: data.items.map((item) => ({
       params: { slug: item.fields.slug },
     })),
-    fallback: false,
+    fallback: true,
   };
 }
 
@@ -32,19 +33,20 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Article({ article }) {
-  console.log(article);
   return (
-    <div>
-      <h1>{article.fields.title}</h1>
+    <Layout>
       <div>
-        {documentToReactComponents(article.fields.content, {
-          renderNode: {
-            [BLOCKS.EMBEDDED_ASSET]: (node) => (
-              <img src={"https:" + node.data.target.fields.file.url} />
-            ),
-          },
-        })}
+        <h1>{article.fields.title}</h1>
+        <div>
+          {documentToReactComponents(article.fields.content, {
+            renderNode: {
+              [BLOCKS.EMBEDDED_ASSET]: (node) => (
+                <img src={"https:" + node.data.target.fields.file.url} />
+              ),
+            },
+          })}
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }
