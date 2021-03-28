@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     backgroundColor: (theme) => ({
       maincolor: "#738E99",
+      brack: "#333333",
     }),
   },
   variants: {
