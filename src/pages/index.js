@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Layout } from "../components/layout";
 import { Title } from "../components/title";
+import { DateComponent } from "../components/date";
 
 const Home = ({ articles }) => {
   return (
@@ -25,7 +26,7 @@ const Home = ({ articles }) => {
                           {article.fields.title}
                         </h3>
                         <p className="inline-flex items-center">
-                          {article.fields.date}
+                          <DateComponent dateString={article.fields.date} />
                         </p>
                       </div>
                     </a>
