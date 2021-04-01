@@ -11,9 +11,12 @@ export async function getStaticPaths() {
   let data = await client.getEntries({
     content_type: "article",
   });
+
   return {
     paths: data.items.map((item) => ({
-      params: { slug: item.fields.slug },
+      params: {
+        slug: item.fields.slug.toString(),
+      },
     })),
     fallback: true,
   };
