@@ -23,12 +23,9 @@ export default function About() {
         src="koyumi"
         alt="こゆみ写真"
         name="こゆみ"
-        introduce="自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文自己紹介文"
+        introduce="1992年生まれ28歳。建築士・インテリアコーディネーターの資格を持つ。好きなコトは「写真を撮るコト」・「食べるコト」・「美容関係」。だっちにそそのかされブログを始める。"
       />
-      <SocialMedia
-        twitter="https://twitter.com/datchlive"
-        instagram="https://www.instagram.com/datchlive/"
-      />
+      <SocialMedia twitter="https://twitter.com/OL_0315" instagram="" />
     </Layout>
   );
 }

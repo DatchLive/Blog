@@ -1,20 +1,37 @@
 import Link from "next/link";
 import { Layout } from "../components/layout";
 import { Title } from "../components/title";
-import { DateComponent } from "../components/date";
+// import { DateComponent } from "../components/date";
 
-const Home = ({ articles }) => {
+const Home = ({ blogs }) => {
   return (
     <Layout>
       <div>
         <Title title="new articles" />
 
-        {articles.map((article) => (
+        <div>
+          {blogs.map((blog) => (
+            <li key={blog.id}>
+              <Link href="/blogs/[id]" as={`/blogs/${blog.id}`}>
+                <a>
+                  <h2>{blog.title}</h2>
+                </a>
+              </Link>
+              {/* {blog.tags.map((tag) => (
+                <React.Fragment key={tag.id}>
+                  <span>{tag.name}</span>
+                </React.Fragment>
+              ))} */}
+            </li>
+          ))}
+        </div>
+
+        {/* {articles.map((article) => (
           <div key={article.sys.id}>
             <div className="container max-w-xl m-auto items-center">
               <div className="w-full flex flex-col mb-8 px-3">
                 <div className="overflow-hidden bg-white rounded-lg shadow hover:shadow-raised hover:translateY-2px transition">
-                  <Link href={"/articles/" + article.fields.slug}>
+                  <Link href="/blogs/[id]" as={`blogs/${blog.id}`}>
                     <a>
                       <img
                         className="w-full"
@@ -35,26 +52,23 @@ const Home = ({ articles }) => {
               </div>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
     </Layout>
   );
 };
 
-let client = require("contentful").createClient({
-  space: process.env.NEXT_CONTENTFUL_SPACE_ID,
-  accessToken: process.env.NEXT_CONTENTFUL_ACCESS_TOKEN,
-});
-
-export async function getStaticProps() {
-  let data = await client.getEntries({
-    content_type: "article",
-  });
+export const getStaticProps = async () => {
+  const key = {
+    headers: { "X-API-KEY": process.env.API_KEY },
+  };
+  const res = await fetch(process.env.ENDPOINT + "/blogs", key);
+  const data = await res.json();
   return {
     props: {
-      articles: data.items,
+      blogs: data.contents,
     },
   };
-}
+};
 
 export default Home;
