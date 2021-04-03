@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Title } from "../title";
 import { Profile } from "../profile";
 import { SocialMedia } from "../socialmedia";
+import { BtnComponent } from "../btn";
 
 export const Footer = () => {
   return (
@@ -40,9 +41,9 @@ export const Footer = () => {
                 <p className="mb-4">お問い合わせはこちら</p>
 
                 <Link href="/contact">
-                  <button className="text-white bg-brack px-8 py-3 rounded-md mb-4">
-                    問い合わせ
-                  </button>
+                  <a>
+                    <BtnComponent btnText="問い合わせ" />
+                  </a>
                 </Link>
               </div>
             </div>
