@@ -10,12 +10,13 @@ class MyDocument extends Document {
     return (
       <Html lang="ja">
         <Head>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Kosugi&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Courgette&family=M+PLUS+1p:wght@400;700&display=swap"
             rel="stylesheet"
           />
         </Head>
-        <body>
+        <body className="bg-pale-yellow font-mono">
           <Main />
           <NextScript />
         </body>
