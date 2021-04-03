@@ -2,9 +2,10 @@ import Link from "next/link";
 import { Layout } from "../components/layout";
 import { Title } from "../components/title";
 import { DateComponent } from "../components/date";
+import { BtnComponent } from "../components/btn";
+import { BeakerIcon } from "@heroicons/react/solid";
 
-const Home = ({ blogs }) => {
-  console.log(blogs);
+const Home = ({ blogs, categories }) => {
   return (
     <Layout>
       <Title title="new articles" />
@@ -42,6 +43,14 @@ const Home = ({ blogs }) => {
           </div>
         ))}
       </div>
+
+      <div>
+        {categories.map((cate) => (
+          <div key={cate.id}>
+            <BtnComponent btnText={cate.name} />
+          </div>
+        ))}
+      </div>
     </Layout>
   );
 };
@@ -52,9 +61,15 @@ export const getStaticProps = async () => {
   };
   const res = await fetch(process.env.ENDPOINT + "/blogs", key);
   const data = await res.json();
+
+  //👇カテゴリー取得
+  const tag = await fetch(process.env.ENDPOINT + "/tags", key);
+  const category = await tag.json();
+
   return {
     props: {
       blogs: data.contents,
+      categories: category.contents,
     },
   };
 };
