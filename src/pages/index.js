@@ -3,6 +3,7 @@ import { Layout } from "../components/layout";
 import { Title } from "../components/title";
 import { DateComponent } from "../components/date";
 import { BtnComponent } from "../components/btn";
+import { TagComponent } from "../components/tag";
 
 const Home = ({ blogs, categories }) => {
   return (
@@ -23,12 +24,12 @@ const Home = ({ blogs, categories }) => {
                             {blog.title}
                           </h2>
                           <div>
-                            <p className="inline-flex items-center">
+                            <p className="inline-flex items-center mb-2">
                               <DateComponent dateString={blog.publishedAt} />
                             </p>
                             {blog.tags.map((tag) => (
-                              <div key={tag.id}>
-                                <span>{tag.name}</span>
+                              <div key={tag.id} className="text-xs">
+                                <TagComponent tagText={tag.name} />
                               </div>
                             ))}
                           </div>
