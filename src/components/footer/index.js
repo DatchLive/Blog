@@ -35,7 +35,7 @@ export const Footer = () => {
                 instagram=""
               />
             </div>
-            <div className="sm:w-1/2 sm:pl-8 sm:py-8 sm:border-l border-gray-900 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+            <div className="sm:w-1/2 sm:pl-8 sm:py-8 sm:border-l sm:border-gray-900 sm:border-t-0 mt-4 pt-4 sm:mt-0 text-center sm:text-left">
               <div className="text-center">
                 <Title title="contact" />
                 <p className="mb-4">お問い合わせはこちら</p>
