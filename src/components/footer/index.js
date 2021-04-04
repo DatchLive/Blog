@@ -6,7 +6,7 @@ import { BtnComponent } from "../btn";
 
 export const Footer = () => {
   return (
-    <footer className="text-center">
+    <footer className="text-center font-plus">
       <div className="mx-4"></div>
 
       <div className="container px-5 py-24 mx-auto flex flex-col">
@@ -23,7 +23,7 @@ export const Footer = () => {
               <p className="mb-6">
                 詳しいプロフィールは
                 <Link href="/about">
-                  <span className="border-b-2 border-black cursor-pointer">
+                  <span className="border-b border-gray-900 cursor-pointer">
                     こちら
                   </span>
                 </Link>
@@ -35,7 +35,7 @@ export const Footer = () => {
                 instagram=""
               />
             </div>
-            <div className="sm:w-1/2 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+            <div className="sm:w-1/2 sm:pl-8 sm:py-8 sm:border-l border-gray-900 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
               <div className="text-center">
                 <Title title="contact" />
                 <p className="mb-4">お問い合わせはこちら</p>
@@ -51,7 +51,7 @@ export const Footer = () => {
         </div>
       </div>
 
-      <small className="font-serif pb-4">
+      <small className="font-courgette pb-4">
         Copyright &copy; <span className="uppercase">wise life log</span> All
         Rights Reserved.
       </small>

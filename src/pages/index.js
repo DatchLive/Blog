@@ -3,7 +3,6 @@ import { Layout } from "../components/layout";
 import { Title } from "../components/title";
 import { DateComponent } from "../components/date";
 import { BtnComponent } from "../components/btn";
-import { BeakerIcon } from "@heroicons/react/solid";
 
 const Home = ({ blogs, categories }) => {
   return (
@@ -44,10 +43,12 @@ const Home = ({ blogs, categories }) => {
         ))}
       </div>
 
-      <div>
+      <p className="text-lg text-center mb-4">カテゴリー毎の記事はこちら♪</p>
+
+      <div className="text-center sm:flex sm:justify-center">
         {categories.map((cate) => (
-          <div key={cate.id}>
-            <BtnComponent btnText={cate.name} />
+          <div key={cate.id} className="p-4">
+            <BtnComponent btnText={cate.name} className="inline-block" />
           </div>
         ))}
       </div>

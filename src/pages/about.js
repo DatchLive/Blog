@@ -7,6 +7,7 @@ export default function About() {
   return (
     <Layout>
       <Title title="about" />
+
       <div className="mb-16">
         <Profile
           src="datch"
