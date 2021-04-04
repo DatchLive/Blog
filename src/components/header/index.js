@@ -7,7 +7,7 @@ export const Header = () => {
         <h1 className=" font-courgette text-4xl uppercase pt-8">
           Wise Life Log
         </h1>
-        <h2 className="font-mono text-sm">〜賢く生きるための情報を発信！〜</h2>
+        <h2 className="font-plus text-sm">〜賢く生きるための情報を発信！〜</h2>
         <NavBar />
       </div>
     </header>

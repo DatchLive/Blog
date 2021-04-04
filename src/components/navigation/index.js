@@ -4,15 +4,14 @@ import { MenuIcon } from "@heroicons/react/outline";
 
 export const NavBar = () => {
   const [active, setActive] = useState(false);
-
   const handleClick = () => {
     setActive(!active);
   };
 
   return (
-    <nav className="flex items-center flex-wrap pb-4">
+    <nav className="flex items-center flex-wrap pb-8 sm:pb-4">
       <button
-        className="absolute top-2 right-2 p-2 hover:bg-green-100 hover:bg-opacity-50 rounded outline-none lg:hidden "
+        className="absolute top-2 right-2 p-2 hover:bg-green-100 hover:bg-opacity-50 rounded outline-none sm:hidden "
         onClick={handleClick}
       >
         <MenuIcon className="text-white h-5 w-5" />
@@ -21,9 +20,9 @@ export const NavBar = () => {
       <div
         className={`${
           active ? "" : "hidden"
-        }   w-full lg:inline-flex lg:flex-grow lg:w-auto`}
+        }   w-full sm:inline-flex sm:flex-grow sm:w-auto`}
       >
-        <div className="pt-4 lg:flex-row lg:w-auto lg:justify-center  flex flex-col lg:m-auto">
+        <div className="pt-4 sm:flex-row sm:w-auto sm:justify-center  flex flex-col sm:m-auto">
           <Link href="/">
             <a className="text-white uppercase lg:w-auto w-full px-3 py-2 rounded  items-center justify-center hover:bg-green-100 hover:bg-opacity-50">
               Home

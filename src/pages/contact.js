@@ -1,3 +1,4 @@
+import { BtnComponent } from "../components/btn";
 import { Layout } from "../components/layout";
 import { Title } from "../components/title";
 
@@ -5,20 +6,29 @@ export default function Contact() {
   return (
     <Layout>
       <Title title="contact" />
-      {/* <input
-        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-        id="nick"
-        type="text"
-      ></input>
-      <input
-        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-        id="nick"
-        type="text"
-      ></input>
-      <textarea
-        className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
-        id="message"
-      ></textarea> */}
+      <div>
+        <span className="font-plus">お名前</span>
+        <input
+          className="appearance-none block w-full bg-white text-gray-900 border border-gray-900 rounded py-2 px-4 mb-8 leading-tight focus:outline-none focus:border-gray-900"
+          id="nick"
+          type="text"
+        ></input>
+        <span className="font-plus">メールアドレス</span>
+        <input
+          className="appearance-none block w-full bg-white text-gray-900 border border-gray-900 rounded py-2 px-4 mb-8 leading-tight focus:outline-none focus:border-gray-900"
+          id="mail"
+          type="text"
+        ></input>
+        <span className="font-plus">お問い合わせ内容</span>
+        <textarea
+          className=" no-resize appearance-none block w-full bg-white text-gray-900 border border-gray-900 rounded py-3 px-4 mb-12 leading-tight focus:outline-none focus:border-gray-900 h-48 resize-none"
+          id="message"
+        ></textarea>
+
+        <div className="text-center">
+          <BtnComponent btnText="送信" />
+        </div>
+      </div>
     </Layout>
   );
 }
