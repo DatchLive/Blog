@@ -5,7 +5,8 @@ import { DateComponent } from "../components/date";
 import { BtnComponent } from "../components/btn";
 import { TagComponent } from "../components/tag";
 
-const Home = ({ blogs, categories }) => {
+const Home = ({ blogs, categories, houses }) => {
+  console.log(houses);
   return (
     <Layout>
       <Title title="new articles" />
@@ -68,10 +69,18 @@ export const getStaticProps = async () => {
   const tag = await fetch(process.env.ENDPOINT + "/tags", key);
   const category = await tag.json();
 
+  //👇カテゴリー毎記事取得
+  const house = await fetch(
+    process.env.ENDPOINT + "/blogs?filters=tags[contains]daz0asqjdtd",
+    key
+  );
+  const houseData = await house.json();
+
   return {
     props: {
       blogs: data.contents,
       categories: category.contents,
+      houses: houseData.contents,
     },
   };
 };
