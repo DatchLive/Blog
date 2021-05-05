@@ -1,6 +1,6 @@
-import { Layout } from "../../components/layout";
-import { DateComponent } from "../../components/date";
-import { TagComponent } from "../../components/tag";
+import { Layout } from "src/components/layout";
+import { DateComponent } from "src/components/date";
+import { TagComponent } from "src/components/tag";
 
 export default function Article({ blog }) {
   return (

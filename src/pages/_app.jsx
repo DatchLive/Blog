@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "src/styles/globals.css";
 
 //FontAwesome
 import { library } from "@fortawesome/fontawesome-svg-core";

@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Title } from "../title";
-import { Profile } from "../profile";
-import { SocialMedia } from "../socialmedia";
-import { BtnComponent } from "../btn";
+import { Title } from "src/components/title";
+import { Profile } from "src/components/profile";
+import { SocialMedia } from "src/components/socialmedia";
+import { BtnComponent } from "src/components/btn";
 
 export const Footer = () => {
   return (
