@@ -1,7 +1,7 @@
-import { Layout } from "../components/layout";
-import { Profile } from "../components/profile";
-import { Title } from "../components/title";
-import { SocialMedia } from "../components/socialmedia";
+import { Layout } from "src/components/layout";
+import { Profile } from "src/components/profile";
+import { Title } from "src/components/title";
+import { SocialMedia } from "src/components/socialmedia";
 
 export default function About() {
   return (

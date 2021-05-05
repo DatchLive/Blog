@@ -1,12 +1,11 @@
 import Link from "next/link";
-import { Layout } from "../components/layout";
-import { Title } from "../components/title";
-import { DateComponent } from "../components/date";
-import { BtnComponent } from "../components/btn";
-import { TagComponent } from "../components/tag";
+import { Layout } from "src/components/layout";
+import { Title } from "src/components/title";
+import { DateComponent } from "src/components/date";
+import { BtnComponent } from "src/components/btn";
+import { TagComponent } from "src/components/tag";
 
 const Home = ({ blogs, categories, houses }) => {
-  console.log(houses);
   return (
     <Layout>
       <Title title="new articles" />
@@ -17,7 +16,7 @@ const Home = ({ blogs, categories, houses }) => {
               <div className="w-full flex flex-col mb-8 px-3">
                 <div className="overflow-hidden bg-white rounded-lg shadow hover:shadow-raised hover:translateY-2px transition">
                   <Link href="/blogs/[id]" as={`/blogs/${blog.id}`}>
-                    <div>
+                    <div className="cursor-pointer">
                       <a>
                         <img className="w-full" src={blog.image.url} alt="" />
                         <div className="p-6 flex flex-col justify-between">
@@ -44,9 +43,7 @@ const Home = ({ blogs, categories, houses }) => {
           </div>
         ))}
       </div>
-
       <p className="text-lg text-center mb-4">カテゴリー毎の記事はこちら♪</p>
-
       <div className="text-center sm:flex sm:justify-center">
         {categories.map((cate) => (
           <div key={cate.id} className="p-4">

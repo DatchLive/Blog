@@ -1,6 +1,6 @@
-import { BtnComponent } from "../components/btn";
-import { Layout } from "../components/layout";
-import { Title } from "../components/title";
+import { Layout } from "src/components/layout";
+import { BtnComponent } from "src/components/btn";
+import { Title } from "src/components/title";
 
 export default function Contact() {
   return (
