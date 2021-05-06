@@ -5,7 +5,7 @@ import { DateComponent } from "src/components/date";
 import { BtnComponent } from "src/components/btn";
 import { TagComponent } from "src/components/tag";
 
-const Home = ({ blogs, categories, houses }) => {
+const Home = ({ blogs, categories }) => {
   return (
     <Layout>
       <Title title="new articles" />
@@ -47,7 +47,11 @@ const Home = ({ blogs, categories, houses }) => {
       <div className="text-center sm:flex sm:justify-center">
         {categories.map((cate) => (
           <div key={cate.id} className="p-4">
-            <BtnComponent btnText={cate.name} className="inline-block" />
+            <Link href="/tags/[id]" as={`/tags/${cate.id}`}>
+              <a>
+                <span>{cate.name}</span>
+              </a>
+            </Link>
           </div>
         ))}
       </div>
@@ -66,18 +70,10 @@ export const getStaticProps = async () => {
   const tag = await fetch(process.env.ENDPOINT + "/tags", key);
   const category = await tag.json();
 
-  //👇カテゴリー毎記事取得
-  const house = await fetch(
-    process.env.ENDPOINT + "/blogs?filters=tags[contains]daz0asqjdtd",
-    key
-  );
-  const houseData = await house.json();
-
   return {
     props: {
       blogs: data.contents,
       categories: category.contents,
-      houses: houseData.contents,
     },
   };
 };
