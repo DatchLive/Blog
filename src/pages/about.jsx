@@ -6,7 +6,7 @@ import { SocialMedia } from "src/components/socialmedia";
 export default function About() {
   return (
     <Layout>
-      <Title title="about" />
+      <Title title="About" />
 
       <div className="mb-16">
         <Profile

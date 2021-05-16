@@ -1,6 +1,6 @@
 import { Layout } from "src/components/layout";
 import { DateComponent } from "src/components/date";
-import { TagComponent } from "src/components/tag";
+import { CategoryBtn } from "src/components/category";
 
 export default function Article({ blog }) {
   return (
@@ -12,7 +12,7 @@ export default function Article({ blog }) {
         <div className="flex justify-between m-auto mb-10">
           {blog.tags.map((tag) => (
             <div key={tag.id}>
-              <TagComponent tagText={tag.name} />
+              <CategoryBtn categoryTitle={tag.name} />
             </div>
           ))}
           <DateComponent dateString={blog.publishedAt} />

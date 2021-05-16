@@ -5,11 +5,6 @@ module.exports = {
     extend: {
       colors: {
         "pale-green": "#738E99",
-        "pale-yellow": "#EEEAE4",
-      },
-      fontFamily: {
-        courgette: '"Courgette", cursive',
-        plus: '"M PLUS 1p", sans-serif',
       },
     },
   },
