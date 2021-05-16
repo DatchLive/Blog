@@ -18,7 +18,10 @@ export default function Article({ blog }) {
           <DateComponent dateString={blog.publishedAt} />
         </div>
         <img className="w-full mb-16" src={blog.image.url} alt="" />
-        <div dangerouslySetInnerHTML={{ __html: `${blog.body}` }}></div>
+        <div
+          className="prose max-w-none"
+          dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
+        ></div>
       </div>
     </Layout>
   );
