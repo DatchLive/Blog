@@ -15,7 +15,7 @@ const Home = ({ blogs, categories }) => {
               <Link href="/blogs/[id]" as={`/blogs/${blog.id}`}>
                 <div className="block flex-1 cursor-pointer">
                   <img src={blog.image.url} alt="" />
-                  <h2 className="font-bold leading-normal px-3 py-2">
+                  <h2 className="font-semibold leading-normal px-3 py-2">
                     {blog.title}
                   </h2>
                 </div>
@@ -34,6 +34,7 @@ const Home = ({ blogs, categories }) => {
           </div>
         ))}
       </div>
+
       <p className="text-lg text-center mb-4 subpixel-antialiased">
         カテゴリー毎の記事はこちら♪
       </p>
@@ -48,6 +49,8 @@ const Home = ({ blogs, categories }) => {
           </div>
         ))}
       </div>
+
+      <Title title="Editor" />
     </Layout>
   );
 };
@@ -68,6 +71,8 @@ export const getStaticProps = async () => {
       blogs: data.contents,
       categories: category.contents,
     },
+    //👇 ISR設定
+    revalidate: 1,
   };
 };
 
