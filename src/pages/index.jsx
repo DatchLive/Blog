@@ -3,6 +3,7 @@ import { Layout } from "src/components/layout";
 import { Title } from "src/components/title";
 import { DateComponent } from "src/components/date";
 import { CategoryBtn } from "src/components/category";
+import { ProfileCard } from "src/components/profilecard";
 
 const Home = ({ blogs, categories }) => {
   return (
@@ -34,7 +35,6 @@ const Home = ({ blogs, categories }) => {
           </div>
         ))}
       </div>
-
       <p className="text-lg text-center mb-4 subpixel-antialiased">
         カテゴリー毎の記事はこちら♪
       </p>
@@ -49,8 +49,8 @@ const Home = ({ blogs, categories }) => {
           </div>
         ))}
       </div>
-
       <Title title="Editor" />
+      <ProfileCard />
     </Layout>
   );
 };
