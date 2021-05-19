@@ -1,11 +1,4 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  Twitter,
-  Instagram,
-  Youtube,
-  Github,
-  Zenn,
-} from "@icons-pack/react-simple-icons";
 
 const PROFINFO = [
   {
@@ -15,8 +8,6 @@ const PROFINFO = [
     twitter: "https://twitter.com/datchlive",
     instagram: "https://www.instagram.com/datchlive/",
     youtube: "https://www.youtube.com/user/datchlivetv",
-    github: "https://github.com/DatchLive",
-    zenn: "https://zenn.dev/datchlive",
   },
   {
     name: "こゆみ",
@@ -48,36 +39,15 @@ export const ProfileCard = () => {
                 <p className="my-2">{item.descripiton}</p>
                 <div className="text-xl text-gray-500">
                   <ul className="flex">
-                    <li className="pr-2 hover:text-gray-700 transition">
+                    <li className=" hover:text-gray-700 transition">
                       <a href={item.twitter}>
-                        <Twitter size={22} />
+                        <FontAwesomeIcon icon={["fab", "twitter"]} />
                       </a>
                     </li>
                     {item.instagram && (
                       <li className="px-2 hover:text-gray-700 transition">
                         <a href={item.instagram}>
-                          <Instagram size={22} />
-                        </a>
-                      </li>
-                    )}
-                    {item.youtube && (
-                      <li className="px-2 hover:text-gray-700 transition">
-                        <a href={item.youtube}>
-                          <Youtube size={22} />
-                        </a>
-                      </li>
-                    )}
-                    {item.github && (
-                      <li className="px-2 hover:text-gray-700 transition">
-                        <a href={item.github}>
-                          <Github size={22} />
-                        </a>
-                      </li>
-                    )}
-                    {item.zenn && (
-                      <li className="px-2 hover:text-gray-700 transition">
-                        <a href={item.zenn}>
-                          <Zenn size={22} />
+                          <FontAwesomeIcon icon={["fab", "instagram"]} />
                         </a>
                       </li>
                     )}
