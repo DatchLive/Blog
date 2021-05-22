@@ -2,12 +2,12 @@ import { NavBar } from "src/components/navigation";
 
 export const Header = () => {
   return (
-    <header className="bg-pale-green text-white fixed top-0 w-full">
+    <header className="fixed top-0 w-full text-white bg-pale-green">
       <div className="text-center">
-        <h1 className=" font-courgette text-4xl uppercase pt-8">
+        <h1 className="pt-8 text-4xl uppercase  font-courgette">
           Wise Life Log
         </h1>
-        <h2 className="font-plus text-sm">〜賢く生きるための情報を発信！〜</h2>
+        <h2 className="text-sm font-plus">〜賢く生きるための情報を発信！〜</h2>
         <NavBar />
       </div>
     </header>

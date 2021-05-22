@@ -9,12 +9,12 @@ export const NavBar = () => {
   };
 
   return (
-    <nav className="flex items-center flex-wrap pb-8 sm:pb-4">
+    <nav className="flex flex-wrap items-center pb-8 sm:pb-4">
       <button
-        className="absolute top-2 right-2 p-2 hover:bg-green-100 hover:bg-opacity-50 rounded outline-none sm:hidden "
+        className="absolute p-2 rounded outline-none top-2 right-2 hover:bg-green-100 hover:bg-opacity-50 sm:hidden "
         onClick={handleClick}
       >
-        <MenuIcon className="text-white h-5 w-5" />
+        <MenuIcon className="w-5 h-5 text-white" />
       </button>
       {/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
       <div
@@ -22,19 +22,19 @@ export const NavBar = () => {
           active ? "" : "hidden"
         }   w-full sm:inline-flex sm:flex-grow sm:w-auto`}
       >
-        <div className="pt-4 sm:flex-row sm:w-auto sm:justify-center  flex flex-col sm:m-auto">
+        <div className="flex flex-col pt-4 sm:flex-row sm:w-auto sm:justify-center sm:m-auto">
           <Link href="/">
-            <a className="text-white uppercase lg:w-auto w-full px-3 py-2 rounded  items-center justify-center hover:bg-green-100 hover:bg-opacity-50">
+            <a className="items-center justify-center w-full px-3 py-2 text-white uppercase rounded lg:w-auto hover:bg-green-100 hover:bg-opacity-50">
               Home
             </a>
           </Link>
           <Link href="/about">
-            <a className="text-white uppercase lg:w-auto w-full px-3 py-2 rounded items-center justify-center hover:bg-green-100 hover:bg-opacity-50">
+            <a className="items-center justify-center w-full px-3 py-2 text-white uppercase rounded lg:w-auto hover:bg-green-100 hover:bg-opacity-50">
               About
             </a>
           </Link>
           <Link href="/contact">
-            <a className="text-white uppercase lg:w-auto w-full px-3 py-2 rounded items-center justify-center hover:bg-green-100 hover:bg-opacity-50">
+            <a className="items-center justify-center w-full px-3 py-2 text-white uppercase rounded lg:w-auto hover:bg-green-100 hover:bg-opacity-50">
               Contact
             </a>
           </Link>

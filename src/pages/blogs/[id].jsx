@@ -6,7 +6,7 @@ export default function Article({ blog }) {
   return (
     <Layout>
       <div>
-        <h1 className="font-plus text-3xl text-center font-bold mb-8">
+        <h1 className="mb-8 text-3xl font-bold text-center font-plus">
           {blog.title}
         </h1>
         <div className="flex justify-between m-auto mb-10">

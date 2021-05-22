@@ -12,11 +12,11 @@ export default function Article({ blogs, tag }) {
         <div className="grid grid-cols-3 gap-8">
           {blogs.map((blog) => (
             <div key={blog.id}>
-              <div className="overflow-hidden rounded-lg shadow flex flex-col h-full hover:shadow-md duration-300">
+              <div className="flex flex-col h-full overflow-hidden duration-300 rounded-lg shadow hover:shadow-md">
                 <Link href="/blogs/[id]" as={`/blogs/${blog.id}`}>
-                  <div className="block flex-1 cursor-pointer">
+                  <div className="flex-1 block cursor-pointer">
                     <img src={blog.image.url} alt="" />
-                    <h2 className="font-bold leading-normal px-3 py-2">
+                    <h2 className="px-3 py-2 font-bold leading-normal">
                       {blog.title}
                     </h2>
                   </div>

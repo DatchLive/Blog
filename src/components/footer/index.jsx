@@ -9,9 +9,9 @@ export const Footer = () => {
     <footer className="text-center font-plus">
       <div className="mx-4"></div>
 
-      <div className="container px-5 py-24 mx-auto flex flex-col">
-        <div className="lg:w-4/6 mx-auto">
-          <div className="flex flex-col sm:flex-row mt-10">
+      <div className="container flex flex-col px-5 py-24 mx-auto">
+        <div className="mx-auto lg:w-4/6">
+          <div className="flex flex-col mt-10 sm:flex-row">
             <div className="sm:w-1/2 sm:pr-8 sm:py-8">
               <Title title="editor" />
               <Profile
@@ -35,7 +35,7 @@ export const Footer = () => {
                 instagram=""
               />
             </div>
-            <div className="sm:w-1/2 sm:pl-8 sm:py-8 sm:border-l sm:border-gray-900 sm:border-t-0 mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+            <div className="pt-4 mt-4 text-center sm:w-1/2 sm:pl-8 sm:py-8 sm:border-l sm:border-gray-900 sm:border-t-0 sm:mt-0 sm:text-left">
               <div className="text-center">
                 <Title title="contact" />
                 <p className="mb-4">お問い合わせはこちら</p>
@@ -51,7 +51,7 @@ export const Footer = () => {
         </div>
       </div>
 
-      <small className="font-courgette pb-4">
+      <small className="pb-4 font-courgette">
         Copyright &copy; <span className="uppercase">wise life log</span> All
         Rights Reserved.
       </small>
