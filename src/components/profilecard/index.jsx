@@ -23,29 +23,29 @@ export const ProfileCard = () => {
       {PROFINFO.map((item) => {
         return (
           <div
-            className="bg-white p-6 shadow rounded-lg flex justify-between items-center mb-5"
+            className="flex items-center justify-between p-6 mb-5 bg-white rounded-lg shadow"
             key={item.name}
           >
             <div className="flex">
               <div className="mr-4">
                 <img
-                  className="w-28 h-28 rounded-full"
+                  className="rounded-full w-28 h-28"
                   src={`/img/${item.icon}.png`}
                   alt={item.name}
                 />
               </div>
               <div className="pl-4">
-                <h3 className="text-xl font-semibold mt-1">{item.name}</h3>
+                <h3 className="mt-1 text-xl font-semibold">{item.name}</h3>
                 <p className="my-2">{item.descripiton}</p>
                 <div className="text-xl text-gray-500">
                   <ul className="flex">
-                    <li className=" hover:text-gray-700 transition">
+                    <li className="transition hover:text-gray-700">
                       <a href={item.twitter}>
                         <FontAwesomeIcon icon={["fab", "twitter"]} />
                       </a>
                     </li>
                     {item.instagram && (
-                      <li className="px-2 hover:text-gray-700 transition">
+                      <li className="px-2 transition hover:text-gray-700">
                         <a href={item.instagram}>
                           <FontAwesomeIcon icon={["fab", "instagram"]} />
                         </a>

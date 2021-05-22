@@ -6,7 +6,7 @@ export const Layout = ({ children }) => {
     <>
       <Header />
       <main>
-        <div className="mt-40 sm:mt-48 m-auto max-w-4xl">{children}</div>
+        <div className="max-w-4xl m-auto mt-40 sm:mt-48">{children}</div>
       </main>
       <Footer />
     </>
