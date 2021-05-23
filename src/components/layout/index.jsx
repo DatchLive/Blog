@@ -5,8 +5,8 @@ export const Layout = ({ children }) => {
     return (
         <>
             <Header />
-            <main>
-                <div className="max-w-4xl m-auto mt-40 sm:mt-48">{children}</div>
+            <main className="bg-gray-50">
+                <div className="max-w-4xl m-auto py-14 px-9">{children}</div>
             </main>
             <Footer />
         </>

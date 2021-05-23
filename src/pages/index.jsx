@@ -12,7 +12,7 @@ const Home = ({ blogs, categories }) => {
             <div className="grid grid-cols-3 gap-8">
                 {blogs.map((blog) => (
                     <div key={blog.id}>
-                        <div className="flex flex-col h-full overflow-hidden duration-300 rounded-lg shadow hover:shadow-md">
+                        <div className="flex flex-col h-full overflow-hidden duration-300 bg-white rounded-lg shadow hover:shadow-md">
                             <Link href="/blogs/[id]" as={`/blogs/${blog.id}`}>
                                 <div className="flex-1 block cursor-pointer">
                                     <img src={blog.image.url} alt="" />
@@ -35,9 +35,8 @@ const Home = ({ blogs, categories }) => {
                     </div>
                 ))}
             </div>
-            <p className="mb-4 text-lg subpixel-antialiased text-center">
-        カテゴリー毎の記事はこちら♪
-            </p>
+            <Title title="Category" />
+
             <div className="text-center sm:flex sm:justify-center">
                 {categories.map((cate) => (
                     <div key={cate.id} className="p-4">
