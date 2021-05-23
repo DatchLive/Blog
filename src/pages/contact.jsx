@@ -1,33 +1,53 @@
 import { Layout } from 'src/components/layout'
-import { BtnComponent } from 'src/components/btn'
 import { Title } from 'src/components/title'
+import { useForm } from 'react-hook-form'
 
 export default function Contact() {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({ reValidateMode: 'onSubmit' })
+    const onSubmit = (data) => console.log(data)
+
     return (
         <Layout>
-            <Title title="contact" />
+            <Title title="Contact" />
             <div>
-                <span className="font-plus">お名前</span>
-                <input
-                    className="block w-full px-4 py-2 mb-8 leading-tight text-gray-900 bg-white border border-gray-900 rounded appearance-none focus:outline-none focus:border-gray-900"
-                    id="nick"
-                    type="text"
-                ></input>
-                <span className="font-plus">メールアドレス</span>
-                <input
-                    className="block w-full px-4 py-2 mb-8 leading-tight text-gray-900 bg-white border border-gray-900 rounded appearance-none focus:outline-none focus:border-gray-900"
-                    id="mail"
-                    type="text"
-                ></input>
-                <span className="font-plus">お問い合わせ内容</span>
-                <textarea
-                    className="block w-full h-48 px-4 py-3 mb-12 leading-tight text-gray-900 bg-white border border-gray-900 rounded appearance-none resize-none no-resize focus:outline-none focus:border-gray-900"
-                    id="message"
-                ></textarea>
-
-                <div className="text-center">
-                    <BtnComponent btnText="送信" />
-                </div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <span className="mr-3 font-plus">お名前</span>
+                    {errors?.name && (
+                        <span className="text-xs text-red-500">入力必須</span>
+                    )}
+                    <input
+                        {...register('name', { required: true })}
+                        className="block w-full px-1.5 py-2 mb-8 leading-tight text-gray-900 bg-white border border-gray-900 rounded appearance-none focus:outline-none focus:border-gray-900"
+                        type="text"
+                    />
+                    <span className="mr-3 font-plus">メールアドレス</span>
+                    {errors?.email && (
+                        <span className="text-xs text-red-500">入力必須</span>
+                    )}
+                    <input
+                        {...register('email', { required: true })}
+                        className="block w-full px-1.5 py-2 mb-8 leading-tight text-gray-900 bg-white border border-gray-900 rounded appearance-none focus:outline-none focus:border-gray-900"
+                        type="text"
+                    />
+                    <span className="mr-3 font-plus">お問い合わせ内容</span>
+                    {errors?.email && (
+                        <span className="text-xs text-red-500">入力必須</span>
+                    )}
+                    <textarea
+                        {...register('contents', { required: true })}
+                        className="block w-full h-48 px-1.5 py-2 mb-12 leading-tight text-gray-900 bg-white border border-gray-900 rounded appearance-none resize-none no-resize focus:outline-none focus:border-gray-900"
+                    />
+                    <div className="text-center">
+                        <input
+                            type="submit"
+                            className="px-3 py-1 text-gray-500 duration-300 bg-gray-200 rounded-md cursor-pointer hover:bg-blue-100 hover:text-blue-500"
+                        />
+                    </div>
+                </form>
             </div>
         </Layout>
     )
