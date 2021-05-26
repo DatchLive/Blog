@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Layout } from 'src/components/layout'
+import { client } from 'src/libs/client'
 import { Title } from 'src/components/title'
 import { DateComponent } from 'src/components/date'
 import { CategoryBtn } from 'src/components/category'
@@ -55,15 +56,8 @@ const Home = ({ blogs, categories }) => {
 }
 
 export const getStaticProps = async () => {
-    const key = {
-        headers: { 'X-API-KEY': process.env.API_KEY },
-    }
-    const res = await fetch(process.env.ENDPOINT + '/blogs', key)
-    const data = await res.json()
-
-    //👇カテゴリー取得
-    const tag = await fetch(process.env.ENDPOINT + '/tags', key)
-    const category = await tag.json()
+    const data = await client.get({ endpoint: 'blogs' }) //記事一覧取得
+    const category = await client.get({ endpoint: 'tags' }) //カテゴリ一覧取得
 
     return {
         props: {
