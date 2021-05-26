@@ -1,4 +1,5 @@
 import { Layout } from 'src/components/layout'
+import { client } from 'src/libs/client'
 import { DateComponent } from 'src/components/date'
 import { CategoryBtn } from 'src/components/category'
 
@@ -28,26 +29,14 @@ export default function Article({ blog }) {
 }
 
 export const getStaticPaths = async () => {
-    const key = {
-        headers: { 'X-API-KEY': process.env.API_KEY },
-    }
-    const res = await fetch(process.env.ENDPOINT + '/blogs', key)
-    const repos = await res.json()
-    const paths = repos.contents.map((repo) => `/blogs/${repo.id}`)
+    const data = await client.get({ endpoint: 'blogs' })
+    const paths = data.contents.map((content) => `/blogs/${content.id}`)
     return { paths, fallback: 'blocking' }
 }
 
 export const getStaticProps = async (context) => {
     const id = context.params.id
-
-    const key = {
-        headers: { 'X-API-KEY': process.env.API_KEY },
-    }
-    const res = await fetch(
-        `https://wiselifelog.microcms.io/api/v1/blogs/${id}`,
-        key
-    )
-    const blog = await res.json()
+    const blog = await client.get({ endpoint: 'blogs', contentId: id })
     return {
         props: {
             blog: blog,
