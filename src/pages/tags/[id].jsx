@@ -1,14 +1,15 @@
 import Link from 'next/link'
+import { client } from 'src/libs/client'
 import { Layout } from 'src/components/layout'
 import { Title } from 'src/components/title'
 import { DateComponent } from 'src/components/date'
 import { CategoryBtn } from 'src/components/category'
 
-export default function Article({ blogs, tag }) {
+export default function Article({ blogs, categories }) {
     return (
         <Layout>
             <div>
-                <Title title={tag.name} />
+                <Title title={categories.name} />
                 <div className="grid grid-cols-3 gap-8">
                     {blogs.map((blog) => (
                         <div key={blog.id}>
@@ -41,37 +42,27 @@ export default function Article({ blogs, tag }) {
 }
 
 export const getStaticPaths = async () => {
-    const key = {
-        headers: { 'X-API-KEY': process.env.API_KEY },
-    }
-    const res = await fetch(process.env.ENDPOINT + '/tags', key)
-    const repos = await res.json()
-    const paths = repos.contents.map((repo) => `/tags/${repo.id}`)
+    const data = await client.get({ endpoint: 'tags' })
+    const paths = data.contents.map((content) => `/tags/${content.id}`)
     return { paths, fallback: false }
 }
 
 export const getStaticProps = async (context) => {
     const id = context.params.id
 
-    const key = {
-        headers: { 'X-API-KEY': process.env.API_KEY },
-    }
-    const res = await fetch(
-        `https://wiselifelog.microcms.io/api/v1/blogs?filters=tags[contains]${id}`,
-        key
-    )
-    const data = await res.json()
+    const blog = await client.get({
+        endpoint: 'blogs',
+        queries: {
+            filters: `tags[contains]${id}`,
+        },
+    })
 
-    const resTags = await fetch(
-        `https://wiselifelog.microcms.io/api/v1/tags/${id}`,
-        key
-    )
-    const dataTags = await resTags.json()
+    const category = await client.get({ endpoint: 'tags' }) //カテゴリ一覧取得
 
     return {
         props: {
-            blogs: data.contents,
-            tag: dataTags,
+            blogs: blog.contents,
+            categories: category.contents,
         },
     }
 }
