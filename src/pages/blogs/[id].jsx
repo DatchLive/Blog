@@ -2,6 +2,7 @@ import { Layout } from 'src/components/layout'
 import { client } from 'src/libs/client'
 import { DateComponent } from 'src/components/date'
 import { CategoryBtn } from 'src/components/category'
+import { SnsShare } from 'src/components/snsshare'
 
 export default function Article({ blog }) {
     return (
@@ -24,6 +25,7 @@ export default function Article({ blog }) {
                     dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
                 ></div>
             </div>
+            <SnsShare title={blog.title} url={blog.id} />
         </Layout>
     )
 }
