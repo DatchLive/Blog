@@ -6,11 +6,13 @@ import { DateComponent } from 'src/components/date'
 import { CategoryBtn } from 'src/components/category'
 import { ProfileCard } from 'src/components/profilecard'
 
+
 const Home = ({ blogs, categories }) => {
+   
     return (
         <Layout>
             <Title title="New Articles" />
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 gap-8 mb-24 md:grid-cols-3">
                 {blogs.map((blog) => (
                     <div key={blog.id}>
                         <div className="flex flex-col h-full overflow-hidden duration-300 bg-white rounded-lg shadow hover:shadow-md">
@@ -23,7 +25,7 @@ const Home = ({ blogs, categories }) => {
                                 </div>
                             </Link>
                             <div>
-                                {blog.tags.map((tag) => (
+                                {blog.tags.map((tag, cate) => (
                                     <div key={tag.id} className="px-3 py-1">
                                         <CategoryBtn categoryTitle={tag.name} />
                                     </div>
@@ -37,10 +39,12 @@ const Home = ({ blogs, categories }) => {
                 ))}
             </div>
             <Title title="Category" />
-
-            <div className="text-center sm:flex sm:justify-center">
+            <div className="mb-24 text-center sm:flex sm:justify-center ">
                 {categories.map((cate) => (
-                    <div key={cate.id} className="p-4">
+                    <div
+                        key={cate.id}
+                        className="p-2 m-2 text-gray-500 duration-300 bg-gray-200 rounded-md cursor-pointer hover:bg-blue-100 hover:text-blue-500"
+                    >
                         <Link href="/tags/[id]" as={`/tags/${cate.id}`}>
                             <a>
                                 <span>{cate.name}</span>
