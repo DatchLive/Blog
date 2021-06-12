@@ -1,15 +1,16 @@
 import Link from 'next/link'
-import { client } from 'src/libs/client'
+import { CategoryBtn } from 'src/components/category'
+import { DateComponent } from 'src/components/date'
 import { Layout } from 'src/components/layout'
 import { Title } from 'src/components/title'
-import { DateComponent } from 'src/components/date'
-import { CategoryBtn } from 'src/components/category'
+import { client } from 'src/libs/client'
 
 export default function Article({ blogs, categories }) {
+    console.log(blogs[0].tags[0].name)
     return (
         <Layout>
             <div>
-                <Title title={categories.name} />
+                <Title title={blogs[0].tags[0].name} />
                 <div className="grid grid-cols-3 gap-8">
                     {blogs.map((blog) => (
                         <div key={blog.id}>

@@ -1,14 +1,12 @@
 import Link from 'next/link'
-import { Layout } from 'src/components/layout'
-import { client } from 'src/libs/client'
-import { Title } from 'src/components/title'
-import { DateComponent } from 'src/components/date'
 import { CategoryBtn } from 'src/components/category'
+import { DateComponent } from 'src/components/date'
+import { Layout } from 'src/components/layout'
 import { ProfileCard } from 'src/components/profilecard'
-
+import { Title } from 'src/components/title'
+import { client } from 'src/libs/client'
 
 const Home = ({ blogs, categories }) => {
-   
     return (
         <Layout>
             <Title title="New Articles" />
@@ -25,9 +23,13 @@ const Home = ({ blogs, categories }) => {
                                 </div>
                             </Link>
                             <div>
-                                {blog.tags.map((tag, cate) => (
+                                {blog.tags.map((tag) => (
                                     <div key={tag.id} className="px-3 py-1">
-                                        <CategoryBtn categoryTitle={tag.name} />
+                                        <Link href="/tags/[id]" as={`/tags/${tag.id}`}>
+                                            <a>
+                                                <CategoryBtn categoryTitle={tag.name} />
+                                            </a>
+                                        </Link>
                                     </div>
                                 ))}
                             </div>
