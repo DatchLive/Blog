@@ -1,15 +1,15 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 const NAVINFO = [
     {
-        title: 'Home',
-        url: '/',
+        title: "Home",
+        url: "/",
     },
     {
-        title: 'Contact',
-        url: '/contact',
+        title: "Contact",
+        url: "/contact",
     },
-]
+];
 
 export const NavBar = () => {
     return (
@@ -21,8 +21,8 @@ export const NavBar = () => {
                             {info.title}
                         </a>
                     </Link>
-                )
+                );
             })}
         </nav>
-    )
-}
+    );
+};

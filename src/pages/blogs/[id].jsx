@@ -1,8 +1,8 @@
-import { Layout } from 'src/components/layout'
-import { client } from 'src/libs/client'
-import { DateComponent } from 'src/components/date'
-import { CategoryBtn } from 'src/components/category'
-import { SnsShare } from 'src/components/snsshare'
+import { Layout } from "src/components/layout";
+import { client } from "src/libs/client";
+import { DateComponent } from "src/components/date";
+import { CategoryBtn } from "src/components/category";
+import { SnsShare } from "src/components/snsshare";
 
 export default function Article({ blog }) {
     return (
@@ -27,21 +27,21 @@ export default function Article({ blog }) {
             </div>
             <SnsShare title={blog.title} url={blog.id} />
         </Layout>
-    )
+    );
 }
 
 export const getStaticPaths = async () => {
-    const data = await client.get({ endpoint: 'blogs' })
-    const paths = data.contents.map((content) => `/blogs/${content.id}`)
-    return { paths, fallback: 'blocking' }
-}
+    const data = await client.get({ endpoint: "blogs" });
+    const paths = data.contents.map((content) => `/blogs/${content.id}`);
+    return { paths, fallback: "blocking" };
+};
 
 export const getStaticProps = async (context) => {
-    const id = context.params.id
-    const blog = await client.get({ endpoint: 'blogs', contentId: id })
+    const id = context.params.id;
+    const blog = await client.get({ endpoint: "blogs", contentId: id });
     return {
         props: {
             blog: blog,
         },
-    }
-}
+    };
+};

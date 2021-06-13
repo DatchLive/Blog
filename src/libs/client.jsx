@@ -1,6 +1,6 @@
-import { createClient } from 'microcms-js-sdk'
+import { createClient } from "microcms-js-sdk";
 
 export const client = createClient({
-    serviceDomain: 'wiselifelog',
+    serviceDomain: "wiselifelog",
     apiKey: process.env.API_KEY,
-})
+});

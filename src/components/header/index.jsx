@@ -1,4 +1,4 @@
-import { NavBar } from 'src/components/navigation'
+import { NavBar } from "src/components/navigation";
 
 export const Header = () => {
     return (
@@ -8,5 +8,5 @@ export const Header = () => {
                 <NavBar />
             </div>
         </header>
-    )
-}
+    );
+};
