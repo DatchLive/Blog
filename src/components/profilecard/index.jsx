@@ -1,5 +1,4 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from "next/image";
 import React from "react";
 
 const PROFINFO = [
@@ -22,7 +21,6 @@ const PROFINFO = [
 export const ProfileCard = () => {
   return (
     <div>
-      <Image src="/img/datch.png" width={400} height={400} alt="写真" />
       {PROFINFO.map((item) => {
         return (
           <div
