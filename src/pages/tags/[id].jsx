@@ -1,12 +1,11 @@
-import Link from 'next/link'
-import { CategoryBtn } from 'src/components/category'
-import { DateComponent } from 'src/components/date'
-import { Layout } from 'src/components/layout'
-import { Title } from 'src/components/title'
-import { client } from 'src/libs/client'
+import Link from "next/link";
+import { CategoryBtn } from "src/components/category";
+import { DateComponent } from "src/components/date";
+import { Layout } from "src/components/layout";
+import { Title } from "src/components/title";
+import { client } from "src/libs/client";
 
 export default function Article({ blogs, categories }) {
-    console.log(blogs[0].tags[0].name)
     return (
         <Layout>
             <div>
@@ -39,31 +38,31 @@ export default function Article({ blogs, categories }) {
                 </div>
             </div>
         </Layout>
-    )
+    );
 }
 
 export const getStaticPaths = async () => {
-    const data = await client.get({ endpoint: 'tags' })
-    const paths = data.contents.map((content) => `/tags/${content.id}`)
-    return { paths, fallback: false }
-}
+    const data = await client.get({ endpoint: "tags" });
+    const paths = data.contents.map((content) => `/tags/${content.id}`);
+    return { paths, fallback: false };
+};
 
 export const getStaticProps = async (context) => {
-    const id = context.params.id
+    const id = context.params.id;
 
     const blog = await client.get({
-        endpoint: 'blogs',
+        endpoint: "blogs",
         queries: {
             filters: `tags[contains]${id}`,
         },
-    })
+    });
 
-    const category = await client.get({ endpoint: 'tags' }) //カテゴリ一覧取得
+    const category = await client.get({ endpoint: "tags" }); //カテゴリ一覧取得
 
     return {
         props: {
             blogs: blog.contents,
             categories: category.contents,
         },
-    }
-}
+    };
+};

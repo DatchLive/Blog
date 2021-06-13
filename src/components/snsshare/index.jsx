@@ -1,7 +1,7 @@
-import { TwitterShareButton, TwitterIcon } from 'react-share'
+import { TwitterShareButton, TwitterIcon } from "react-share";
 
 export const SnsShare = (props) => {
-    const { url, title } = props
+    const { url, title } = props;
     return (
         <div className="mt-24">
             <TwitterShareButton
@@ -11,5 +11,5 @@ export const SnsShare = (props) => {
                 <TwitterIcon size={32} round />
             </TwitterShareButton>
         </div>
-    )
-}
+    );
+};

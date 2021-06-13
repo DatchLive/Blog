@@ -6,5 +6,5 @@ export const Footer = () => {
         Rights Reserved.
             </small>
         </footer>
-    )
-}
+    );
+};
