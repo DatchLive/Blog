@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    // node: true,
   },
   extends: [
     "eslint:recommended",
@@ -17,10 +18,7 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {
-
-    semi: ["error"],
-    quotes: ["error", "double"],
-    react/prop-types:["off"],
-
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
   },
 };
