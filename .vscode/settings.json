@@ -1,8 +1,11 @@
 {
-  "javascript.preferences.importModuleSpecifier": "non-relative",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnPaste": true,
+  "javascript.preferences.importModuleSpecifier": "non-relative", //絶対パスでインポートする設定
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript"],
+
+  //Prettierの設定
   "editor.formatOnSave": true,
-  "editor.formatOnType": true,
-  "editor.codeActionsOnSave": ["source.organizeImports", "source.fixAll.eslint"]
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
